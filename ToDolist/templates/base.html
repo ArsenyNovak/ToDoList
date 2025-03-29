@@ -9,21 +9,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ title }}</title>
+    <title>To do list</title>
 </head>
 <body>
     <div class="wrapper">
-        <h1>Задачи на сегодня</h1>
-        <div>
-            {% for task in tasks %}
-            <button>
-                {{ task.description }}
-            </button>
-            {% endfor %}
-        </div>
-        <button>
-                +
-        </button>
+        <h1>{{ title }}</h1>
+         <time id="currentTime"></time>
+        {% block content %}
+        {% endblock %}
     </div>
+    <script src="{% static 'ToDoApp/js/script.js' %}"></script>
 </body>
 </html>

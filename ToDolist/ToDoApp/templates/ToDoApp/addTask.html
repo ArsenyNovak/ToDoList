@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form id="my_form" class="" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul class="wrapper_form">
+        <li>{{ form.description }}</li>
+        <li>{{ form.time_running }}</li>
+        <li>{{ form.importance }}</li>
+    </ul>
+    <ul class="wrapperBtn">
+        <li><a href="javascript:{}" onclick="document.getElementById('my_form').submit();"
+               class="btn">{{ ButtonSubbmit }}</a></li>
+        <li><a href="{% url 'home' %}" class="btn">Вернуться к списку</a></li>
+    </ul>
+</form>
+{% endblock %}
