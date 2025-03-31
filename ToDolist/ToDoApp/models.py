@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from django.utils.timezone import now
-import datetime
+
 # Create your models here.
 class Task(models.Model):
 
@@ -20,7 +19,7 @@ class Task(models.Model):
     StatusTask = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)),
                                      default=Status.RUNNING)
     time_create = models.DateTimeField(auto_now_add=True)
-    time_running = models.DateField(default=now())
+    time_running = models.DateField()
     time_finish = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):

@@ -36,6 +36,10 @@ ul {
     padding-left: 0;
 }
 
+hr {
+    width: 400px;
+}
+
 .wrapper {
     background-color: #00CED1;
     margin: auto;

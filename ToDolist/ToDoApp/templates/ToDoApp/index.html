@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<form id="my_form" class="" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul class="wrapper_form">
+        <li>{{ form.description }}</li>
+        <li>{{ form.time_running }}</li>
+        <li>{{ form.importance }}</li>
+        <li><a href="javascript:{}" onclick="document.getElementById('my_form').submit();"
+               class="btn">Добавить задачу</a></li>
+    </ul>
+</form>
+<hr>
+<h2>Задачи на сегодня</h2>
 <div>
     {% if tasks %}
         <ul class="list_task">
@@ -16,8 +28,8 @@
         <h2>На сегодня нет задач, ты молодец</h2>
     {% endif %}
 </div>
+<hr>
 <ul class="wrapperBtn">
-    <li><a href="{% url 'create_task' %}" class="btn">+</a></li>
     <li><a href="#" class="btn">Архив</a></li>
     <li><a href="#" class="btn">Будущие задачи</a></li>
 </ul>
