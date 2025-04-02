@@ -13,9 +13,27 @@
 </head>
 <body>
     <div class="wrapper">
-        <h2>Добавление задачи</h2>
          <time id="currentTime"></time>
-        {% block content %}
+        {% block content_form %}
+        {% endblock %}
+        <h2>{{title_article}}</h2>
+        <div>
+            {% if tasks %}
+                <ul class="list_task">
+                {% for task in tasks %}
+                <li class="wrapperBtn">
+                    <a href="{% url 'running_task' task.pk %}" class="btn"> V </a>
+                    <a href="{% url 'update_task' task.pk %}" class="list__btn btn"> {{ task.description }} </a>
+                    <a href="{% url 'delete_task' task.pk %}" class="btn"> X </a>
+                </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <h2>{{ text_article }}</h2>
+            {% endif %}
+        </div>
+        <hr style="width: 400px;">
+        {% block content_buttons %}
         {% endblock %}
     </div>
     <script src="{% static 'ToDoApp/js/script.js' %}"></script>

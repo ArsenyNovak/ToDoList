@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block content_form %}
 <form id="my_form" class="gap_20 list_task" action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <ul class="wrapper_form">
@@ -13,9 +13,5 @@
                class="btn">{{ ButtonSubbmit }}</a></li>
         <li><a href="{% url 'home' %}" class="btn">Вернуться к списку</a></li>
     </ul>
-    <div>
-        <a href="{% url 'delete_task' task.pk %}"
-           class="warning__btn btn">Удалить задачу</a>
-    </div>
 </form>
 {% endblock %}

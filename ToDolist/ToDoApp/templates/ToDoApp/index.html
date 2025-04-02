@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block content_form %}
 <form id="my_form" class="" action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <ul class="wrapper_form">
@@ -11,26 +11,12 @@
                class="btn">Добавить задачу</a></li>
     </ul>
 </form>
-<hr>
-<h2>Задачи на сегодня</h2>
-<div>
-    {% if tasks %}
-        <ul class="list_task">
-        {% for task in tasks %}
-        <li class="wrapperBtn">
-            <button class="btn" type="submit"></button>
-            <a href="{% url 'update_task' task.pk %}" class="list__btn btn"> {{ task.description }} </a>
-            <a href="{% url 'delete_task' task.pk %}" class="btn"> X </a>
-        </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <h2>На сегодня нет задач, ты молодец</h2>
-    {% endif %}
-</div>
-<hr>
+<hr style="width: 400px;">
+{% endblock %}
+
+{% block content_buttons %}
 <ul class="wrapperBtn">
-    <li><a href="#" class="btn">Архив</a></li>
-    <li><a href="#" class="btn">Будущие задачи</a></li>
+    <li><a href="{% url 'archive_tasks' %}" class="btn">Архив</a></li>
+    <li><a href="{% url 'future_tasks' %}" class="btn">Будущие задачи</a></li>
 </ul>
 {% endblock %}
